@@ -1,18 +1,15 @@
 name: bootstrap-knowledge
 on:
-  push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
+  push: { branches: ["main"] }
+  pull_request: { branches: ["main"] }
 jobs:
-  lint-md:
+  lint:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Validate Markdown front-matter
+      - name: Front-matter check
         run: |
-          set -e
           for f in $(git ls-files '*.md'); do
-            head -n 30 "$f" | grep -qi 'title:' || echo "::warning file=$f::Missing 'title' in front-matter";
-            head -n 50 "$f" | grep -qi 'last_review:' || echo "::warning file=$f::Missing 'last_review' in front-matter";
+            head -n 30 "$f" | grep -qi 'title:' || echo "::warning file=$f::Missing title"
+            head -n 50 "$f" | grep -qi 'last_review:' || echo "::warning file=$f::Missing last_review"
           done
