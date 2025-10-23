@@ -1,9 +1,0 @@
-task_id: "2025-10-22T11:10"
-agent: "agent_brief_client"
-goal: "CR post-brief avec actions J+1"
-context_snippet: "lancement produit, 120 pers, hybride"
-what_worked: ["questions timing budget", "sections claires"]
-what_failed: ["manque references FR/EN"]
-user_feedback: "Good structure"
-next_idea: "ajouter options décor lumière"
-timestamp: "2025-10-22T11:10"
